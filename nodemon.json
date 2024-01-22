@@ -1,0 +1,23 @@
+{
+  "verbose": false,
+  "debug": false,
+  "exec": "node --loader ts-node/esm --experimental-specifier-resolution=node ./src/app.ts",
+  "ignore": [
+    "node_modules",
+    "./test",
+    "**/*.d.ts",
+    "*.test.ts",
+    "*.spec.ts",
+    "fixtures/*",
+    "test/**/*",
+    "docs/*"
+  ],
+  "events": {
+    "restart": ""
+  },
+  "watch": [
+    "./src/**/*.ts"
+  ],
+  "ext": "ts,tsx",
+  "inspect": true
+}
