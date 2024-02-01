@@ -9,7 +9,7 @@
     "express",
     "template"
   ],
-  "author": "carl chen",
+  "author": "Carl Chen",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cc-hearts/express-starter/issues"
@@ -19,7 +19,7 @@
     "dev": "npx nodemon",
     "build": "rollup -c",
     "build:start": "node app.js",
-    "format": "npx prettier --write .",
+    "format": "prettier --write .",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@cc-heart/eslint-config": "^1.0.0",
+    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -38,15 +39,13 @@
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.10.0",
     "crypto-js": "^4.2.0",
-    "eslint": "^8.54.0",
+    "eslint": "^8.56.0",
     "husky": "^8.0.3",
-    "jsonwebtoken": "^9.0.2",
     "lint-staged": "^15.2.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.2.4",
     "rollup": "^4.6.1",
     "rollup-plugin-copy": "^3.5.0",
-    "ts-node": "^10.9.1",
     "typescript": "^5.3.2",
     "yaml": "^2.3.4"
   },
