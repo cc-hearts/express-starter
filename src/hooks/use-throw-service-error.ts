@@ -1,6 +1,6 @@
-import { getCurrentTimeISOString } from '@cc-heart/utils';
-import type { Request, Response } from 'express';
-import { registerHook } from './register-hook.js';
+import { getCurrentTimeISOString } from '@cc-heart/utils'
+import type { Request, Response } from 'express'
+import { registerHook } from './register-hook.js'
 
 registerHook(
   'useThrowServiceError',
@@ -8,7 +8,7 @@ registerHook(
     res.json({
       code: 500,
       timestamp: getCurrentTimeISOString(),
-      message,
-    });
-  },
-);
+      message
+    })
+  }
+)

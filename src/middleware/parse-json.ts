@@ -1,5 +1,5 @@
-import express, { type Express } from 'express';
+import express, { type Express } from 'express'
 
 export function setupParseJson(app: Express) {
-  app.use(express.json());
+  app.use(express.json())
 }

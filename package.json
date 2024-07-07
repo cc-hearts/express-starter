@@ -20,42 +20,44 @@
     "build": "rollup -c",
     "build:start": "node app.js",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky",
+    "lint": "eslint "
   },
   "dependencies": {
-    "@cc-heart/utils": "^5.1.1",
-    "@prisma/client": "^5.6.0",
-    "express": "^4.18.2"
+    "@cc-heart/utils": "^5.2.0",
+    "@prisma/client": "^5.16.1",
+    "express": "^4.19.2"
   },
   "devDependencies": {
-    "@cc-heart/eslint-config": "^1.0.0",
+    "@cc-heart/eslint-config": "^3.0.6",
     "@rollup/plugin-alias": "^5.1.0",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
-    "@types/crypto-js": "^4.2.1",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/crypto-js": "^4.2.2",
     "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/node": "^20.10.0",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.14.10",
     "crypto-js": "^4.2.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "nodemon": "^3.0.1",
-    "prettier": "^3.2.4",
-    "rollup": "^4.6.1",
+    "lint-staged": "^15.2.7",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.2",
+    "rollup": "^4.18.0",
     "rollup-plugin-copy": "^3.5.0",
-    "typescript": "^5.3.2",
-    "yaml": "^2.3.4"
+    "taze": "^0.14.2",
+    "typescript": "^5.5.3",
+    "yaml": "^2.4.5"
   },
   "engines": {
     "node": ">=12.0.0"
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "eslint --fix"
     ]
   }
 }

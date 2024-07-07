@@ -1,6 +1,6 @@
-import { getCurrentTimeISOString } from '@cc-heart/utils';
-import type { Request, Response } from 'express';
-import { registerHook } from './register-hook.js';
+import { getCurrentTimeISOString } from '@cc-heart/utils'
+import type { Request, Response } from 'express'
+import { registerHook } from './register-hook.js'
 
 registerHook(
   'useSuccessResponse',
@@ -9,7 +9,7 @@ registerHook(
       code: 200,
       message,
       timestamp: getCurrentTimeISOString(),
-      data,
-    });
-  },
-);
+      data
+    })
+  }
+)

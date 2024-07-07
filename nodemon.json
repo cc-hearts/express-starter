@@ -2,15 +2,11 @@
   "verbose": false,
   "debug": false,
   "exec": "npm run build && node dist/app.js",
-  "ignore": [
-    "node_modules"
-  ],
+  "ignore": ["node_modules"],
   "events": {
     "restart": ""
   },
-  "watch": [
-    "*.*"
-  ],
+  "watch": ["*.*"],
   "ext": "ts,tsx",
   "inspect": true
 }

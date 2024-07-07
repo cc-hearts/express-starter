@@ -1,8 +1,8 @@
-import type {Express} from 'express';
-import {AppSetup} from './app.module.js';
+import type { Express } from 'express'
+import { AppSetup } from './app.module.js'
 
 export function setupModules(app: Express) {
-  [AppSetup].forEach(setup => {
-    setup(app);
-  });
+  ;[AppSetup].forEach((setup) => {
+    setup(app)
+  })
 }
