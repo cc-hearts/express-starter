@@ -1,4 +1,4 @@
-export interface AllowCrossDomain {
-  allowCROS: boolean;
-  port: number;
+export interface Config {
+  allowCROS: boolean
+  port: number
 }
