@@ -1,12 +1,6 @@
 import { Chalk } from 'chalk'
+import { LogLevel } from '../constants/logger.js'
 
-const enum LogLevel {
-  DEBUG = 'DEBUG',
-  INFO = 'INFO',
-  WARN = 'WARN',
-  ERROR = 'ERROR',
-  FATAL = 'FATAL'
-}
 const chalk = new Chalk({ level: 1 })
 
 export class Logger {
