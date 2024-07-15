@@ -6,11 +6,11 @@ import { Logger } from './utils/logger.js'
 ;(async () => {
   const app: Express = express()
 
-  beforeLoadMiddle(app)
+  await beforeLoadMiddle(app)
 
   setupModules(app)
 
-  afterLoadMiddle(app)
+  await afterLoadMiddle(app)
 
   const port = 3000
   app.listen(port, () => {

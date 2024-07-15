@@ -2,12 +2,7 @@ import { useConfig } from '../hooks/use-config'
 import type { Express, Request, Response } from 'express'
 import type { Fn } from '@cc-heart/utils/helper'
 
-export async function allowCrossDomain(
-  _: Error,
-  __: Request,
-  res: Response,
-  next: Fn
-) {
+export async function allowCrossDomain(_: Request, res: Response, next: Fn) {
   const cfg = await useConfig()
 
   if (cfg.allowCROS) {
@@ -27,5 +22,5 @@ export async function allowCrossDomain(
 }
 
 export function setupAllowCrossDomain(app: Express) {
-  app.use(allowCrossDomain)
+  app.use('*', allowCrossDomain)
 }
