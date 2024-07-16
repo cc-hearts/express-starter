@@ -13,7 +13,7 @@ export default function () {
     input: resolve('src/app.ts'),
     output: {
       dir: 'dist',
-      format: 'cjs',
+      format: 'esm',
       filename: 'app.js'
     },
     plugins: [
@@ -29,7 +29,6 @@ export default function () {
             dest: 'dist/',
             transform(context) {
               const ctx = JSON.parse(context.toString())
-              ctx.type = 'commonjs'
               return Buffer.from(JSON.stringify(ctx, null, 4))
             }
           }
@@ -44,6 +43,6 @@ export default function () {
         ]
       })
     ],
-    external: ['express', '@cc-heart/utils']
+    external: ['express', '@cc-heart/utils', 'chalk']
   }
 }

@@ -3,6 +3,7 @@ import { setupParseJson } from './parse-json.js'
 import { setupErrorCatch } from './error-catch.js'
 import { setupAllowCrossDomain } from './allow-cross-domain.js'
 import { setupAsyncContextBefore } from './async-context.js'
+
 export async function beforeLoadMiddle(app: Express) {
   return Promise.all(
     [setupAsyncContextBefore, setupAllowCrossDomain, setupParseJson].map(

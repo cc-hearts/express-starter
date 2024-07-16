@@ -1,13 +1,19 @@
-import { createErrorHandler } from '@/utils/create-error-handler'
-import { createRouterFactory } from '@/utils/create-router'
 import { useContext } from '@/hooks/use-context'
+import { useNext } from '@/utils/create-error-handler'
+import { createRouterFactory } from '@/utils/create-router'
+import { sleep } from '@cc-heart/utils'
 const { router, setup } = createRouterFactory('/user')
 export { setup as AppSetup }
 
-router.post(
+router.get(
   '/',
-  createErrorHandler(async () => {
+  async () => {
+    const next = useNext()
+    await sleep(200)
+    next()
+  },
+  () => {
     const { useSuccessResponse } = useContext() || {}
-    useSuccessResponse('ok')
-  })
+    useSuccessResponse('hello world')
+  }
 )
