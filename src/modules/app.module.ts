@@ -1,6 +1,6 @@
-import { createRouterFactory, useNext, useContext } from '../../core/index'
-
+import { createRouterFactory, useNext, useContext } from '~/index'
 import { sleep } from '@cc-heart/utils'
+
 const { router, setup } = createRouterFactory('/user')
 export { setup as AppSetup }
 

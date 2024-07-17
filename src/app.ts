@@ -1,6 +1,5 @@
-import { create, Logger } from '../core/index'
+import { create, Logger } from '~/index'
 import routers from './modules/index'
-
 ;(async () => {
   const { listen, registerRouter } = await create()
   registerRouter(routers)

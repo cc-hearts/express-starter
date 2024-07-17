@@ -16,8 +16,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["core/*"]
     }
-  },
-  "include": ["./src/app.ts"]
+  }
 }

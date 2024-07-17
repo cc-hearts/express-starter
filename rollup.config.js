@@ -39,6 +39,10 @@ export default function () {
           {
             find: '@',
             replacement: resolve('src')
+          },
+          {
+            find: '~',
+            replacement: resolve('core')
           }
         ]
       })
