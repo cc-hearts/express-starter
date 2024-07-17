@@ -1,4 +1,4 @@
-import { useConfig } from '../hooks/use-config'
+import { useConfig } from '../composables/use-config'
 import type { Express, Request, Response } from 'express'
 import type { Fn } from '@cc-heart/utils/helper'
 

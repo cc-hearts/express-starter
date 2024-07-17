@@ -1,6 +1,6 @@
 import type { Fn } from '@cc-heart/utils/helper'
 import type { Request, Response } from 'express'
-import type { RegisterHookFactory } from './helper'
+import type { RegisterHookFactory } from '../types/helper'
 
 export const hookMap = new Map<keyof RegisterHookFactory, Fn>()
 

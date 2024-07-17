@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express'
-import { registerHook } from './register-hook.js'
+import { registerHook } from '../utils/register-hook'
 import { isObject } from '@cc-heart/utils'
 
 registerHook('useBody', <T>(req: Request, _res: Response, initialValue: T) => {

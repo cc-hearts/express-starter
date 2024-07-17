@@ -1,6 +1,6 @@
 import { getCurrentTimeISOString } from '@cc-heart/utils'
 import type { Request, Response } from 'express'
-import { registerHook } from './register-hook.js'
+import { registerHook } from '../utils/register-hook'
 
 registerHook(
   'useSuccessResponse',
