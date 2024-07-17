@@ -1,9 +1,10 @@
 import { isFn } from '@cc-heart/utils'
 import type { Express } from 'express'
 import express from 'express'
-import type { fn } from './create-error-handler'
-import { createErrorHandler } from './create-error-handler'
+import type { RouterFn } from '../types/helper'
+import { createErrorHandler } from './create-error-handler-factory'
 import type { Fn } from '@cc-heart/utils/helper'
+
 export function createRouterFactory(prefix: string = '/') {
   const router = express.Router()
 
@@ -23,7 +24,6 @@ export function createRouterFactory(prefix: string = '/') {
   ]
 
   const findRequestMethodName = (method: Fn) => {
-    console.log(Object.getOwnPropertyNames(router))
     const [name] =
       resultMethodNames.filter((key) => Reflect.get(router, key) === method) ||
       []
@@ -34,7 +34,7 @@ export function createRouterFactory(prefix: string = '/') {
     const name = findRequestMethodName(callback)
     if (name) {
       Reflect.set(router, name, function (this: any, ...rest: any) {
-        const newRest = rest.map((target: string | fn) => {
+        const newRest = rest.map((target: string | RouterFn) => {
           if (isFn(target)) {
             return createErrorHandler(target)
           }

@@ -1,7 +1,7 @@
 import { isFn, isStr, isUndef } from '@cc-heart/utils'
 import type { Request, Response } from 'express'
-import { hookMap } from './register-hook.js'
-import type { RegisterHookFactory } from './helper.js'
+import { hookMap } from '../utils/register-hook'
+import type { RegisterHookFactory } from '../types/helper'
 
 export function useHookFactory<
   T extends RegisterHookFactory = RegisterHookFactory

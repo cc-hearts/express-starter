@@ -3,12 +3,16 @@ import { setupParseJson } from './parse-json.js'
 import { setupErrorCatch } from './error-catch.js'
 import { setupAllowCrossDomain } from './allow-cross-domain.js'
 import { setupAsyncContextBefore } from './async-context.js'
+import type { SetupFn } from '../types/helper.js'
 
-export async function beforeLoadMiddle(app: Express) {
+export async function beforeLoadMiddle(app: Express, middlewares: SetupFn[]) {
   return Promise.all(
-    [setupAsyncContextBefore, setupAllowCrossDomain, setupParseJson].map(
-      (setup) => setup(app)
-    )
+    [
+      setupAsyncContextBefore,
+      setupAllowCrossDomain,
+      setupParseJson,
+      ...middlewares
+    ].map((setup) => setup(app))
   )
 }
 

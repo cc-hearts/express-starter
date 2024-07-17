@@ -1,21 +1,18 @@
 import type { Fn } from '@cc-heart/utils/helper'
-import { AsyncLocalStorage } from 'async_hooks'
 import type { Express, Request, Response } from 'express'
+import { requestAsyncContext } from '../context/request-async-context'
 
-export const asyncLocalStorage = new AsyncLocalStorage()
-
-let reqSed = 0
-export const map = new Map<number, any>()
 function asyncContext(req: Request, res: Response, next: Fn) {
-  reqSed++
-  return asyncLocalStorage.run(reqSed, () => {
-    map.set(reqSed, { req, res })
+  const uniqueId = requestAsyncContext.getUniqueId()
+  return requestAsyncContext.asyncLocalStorage.run(uniqueId, () => {
+    requestAsyncContext.setContext(uniqueId, { req, res })
     res.on('close', () => {
-      map.delete(reqSed)
+      requestAsyncContext.removeContext(uniqueId)
     })
     next()
   })
 }
+
 export function setupAsyncContextBefore(app: Express) {
   app.use(asyncContext)
 }

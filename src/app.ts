@@ -1,19 +1,13 @@
-import express, { type Express } from 'express'
-import './hooks/index.js'
-import { afterLoadMiddle, beforeLoadMiddle } from './middleware/index.js'
-import { setupModules } from './modules/index.js'
-import { Logger } from './utils/logger.js'
+import { create, Logger } from '../core/index'
+import routers from './modules/index'
+
 ;(async () => {
-  const app: Express = express()
-
-  await beforeLoadMiddle(app)
-
-  setupModules(app)
-
-  await afterLoadMiddle(app)
+  const { listen, registerRouter } = await create()
+  registerRouter(routers)
 
   const port = 3000
-  app.listen(port, () => {
+
+  listen(port, () => {
     Logger.Debug(`Server is running on port: ${port}`)
   })
 })()
