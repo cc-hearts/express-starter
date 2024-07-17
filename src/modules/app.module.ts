@@ -12,8 +12,10 @@ router.get(
     await sleep(200)
     next()
   },
-  () => {
+  async () => {
     const { useSuccessResponse } = useContext() || {}
+    await sleep(200)
+    // throw new Error('error')
     useSuccessResponse('hello world')
   }
 )
