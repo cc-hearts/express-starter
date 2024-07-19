@@ -1,11 +1,11 @@
 import express, { type Express } from 'express'
-import { afterLoadMiddle, beforeLoadMiddle } from './middlewares/index.js'
+import { afterLoadMiddle, beforeLoadMiddle } from './middlewares/index'
 import type { Fn } from '@cc-heart/utils/helper'
 import { isFn, noop } from '@cc-heart/utils'
-import type { RouterFn, SetupFn } from './types/helper.js'
+import type { RouterFn, SetupFn } from './types/helper'
 
 export * from './composables/index'
-export * from './utils/index.js'
+export * from './utils/index'
 /**
  * create a express services
  */
@@ -26,7 +26,7 @@ export async function create() {
     })
   }
 
-  const listen = async (port: number, callbacks: Fn) => {
+  const init = async () => {
     await beforeLoadMiddle(app, middlewares)
 
     modules.forEach((setup) => {
@@ -34,8 +34,11 @@ export async function create() {
     })
 
     await afterLoadMiddle(app)
+  }
+  const listen = async (port: number, callbacks: Fn) => {
+    await init()
     app.listen(port, isFn(callbacks) ? callbacks : noop)
   }
 
-  return { registerRouter, registerMiddleware, listen }
+  return { registerRouter, registerMiddleware, listen, app, _init: init }
 }

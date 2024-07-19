@@ -1,5 +1,5 @@
 import { Chalk } from 'chalk'
-import { LogLevel } from '../constants/logger.js'
+import { LogLevel } from '../constants/logger'
 
 const chalk = new Chalk({ level: 1 })
 

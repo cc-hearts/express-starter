@@ -1,7 +1,7 @@
 import type { Fn } from '@cc-heart/utils/helper'
 import type { Express, Request, Response } from 'express'
-import { useHookFactory } from '../composables/use-hook-factory.js'
-import { Logger } from '../utils/logger.js'
+import { useHookFactory } from '../composables/use-hook-factory'
+import { Logger } from '../utils/logger'
 
 function errorCatch(err: Error, req: Request, res: Response, next: Fn) {
   const { useThrowServiceError } = useHookFactory(req, res)

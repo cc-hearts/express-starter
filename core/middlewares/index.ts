@@ -1,9 +1,9 @@
 import type { Express } from 'express'
-import { setupParseJson } from './parse-json.js'
-import { setupErrorCatch } from './error-catch.js'
-import { setupAllowCrossDomain } from './allow-cross-domain.js'
-import { setupAsyncContextBefore } from './async-context.js'
-import type { SetupFn } from '../types/helper.js'
+import { setupParseJson } from './parse-json'
+import { setupErrorCatch } from './error-catch'
+import { setupAllowCrossDomain } from './allow-cross-domain'
+import { setupAsyncContextBefore } from './async-context'
+import type { SetupFn } from '../types/helper'
 
 export async function beforeLoadMiddle(app: Express, middlewares: SetupFn[]) {
   return Promise.all(
